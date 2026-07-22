@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function InteractiveMap() {
   const regions = [
     "East Asia",
@@ -25,24 +27,20 @@ export default function InteractiveMap() {
           </p>
         </div>
 
-        {/* Interactive Links targeting a new tab */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8 text-center">
           {regions.map((region, index) => {
-            // Converts "East Asia" into "east-asia" for a clean URL
             const slug = region.toLowerCase().replace(/\s+/g, "-");
 
             return (
-              <a
+              <Link
                 key={index}
-                href={`/region/${slug}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                to={`/region/${slug}`}
                 className="group cursor-pointer py-8 border-b border-gray-200 hover:border-[var(--color-teal)] transition-colors duration-300 block"
               >
                 <h3 className="text-2xl font-light text-gray-400 group-hover:text-[var(--color-teal)] transition-colors duration-300 uppercase tracking-widest">
                   {region}
                 </h3>
-              </a>
+              </Link>
             );
           })}
         </div>

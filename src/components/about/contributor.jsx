@@ -32,7 +32,6 @@ export default function Contributor() {
             key={index}
             className="group flex flex-col items-center text-center p-8 border border-gray-50 hover:border-[var(--color-coral)] transition-colors duration-300"
           >
-            {/* Minimalist Avatar Placeholder */}
             <div className="w-24 h-24 rounded-full bg-gray-100 mb-6 group-hover:bg-[var(--color-coral)] group-hover:bg-opacity-10 transition-colors duration-300 flex items-center justify-center">
               <span className="text-gray-400 font-light tracking-widest">
                 {contributor.name.charAt(0)}

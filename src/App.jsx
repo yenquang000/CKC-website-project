@@ -1,15 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/homepage";
 import Region from "./pages/region";
 import Gallery from "./components/exploration/gallery";
 import Footer from "./components/layout/footer";
 export default function App() {
   return (
-    <BrowserRouter>
-      {/* 
-        This global navbar stays on every page, 
-        but Home and Region will swap out below it! 
-      */}
+    <HashRouter>
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm flex justify-between items-center p-8 border-b border-gray-100">
         <a
           href="/"
@@ -46,6 +42,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }

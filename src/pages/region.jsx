@@ -1,10 +1,10 @@
+import { useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
-
 export default function Region() {
-  // 1. Grab the dynamic slug from the URL
   const { id } = useParams();
-
-  // 2. Our mock database containing all 9 regions
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
   const regionalData = {
     "east-asia": {
       name: "East Asia",
@@ -143,7 +143,6 @@ export default function Region() {
     },
   };
 
-  // 3. Find the region. If they type a weird URL that doesn't exist, redirect them Home.
   const region = regionalData[id];
   if (!region) {
     return <Navigate to="/" replace />;
@@ -165,7 +164,6 @@ export default function Region() {
           <p className="text-[var(--color-teal)] uppercase tracking-widest text-sm mb-4">
             Regional Archive
           </p>
-          {/* Dynamic Region Name */}
           <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-8">
             {region.name}
           </h1>
@@ -178,12 +176,10 @@ export default function Region() {
             <h2 className="text-xl font-medium uppercase tracking-widest mb-4 group-hover:text-[var(--color-teal)] transition-colors duration-300">
               Native Ingredients
             </h2>
-            {/* Dynamic Ingredient Summary */}
             <p className="text-gray-500 font-light leading-relaxed mb-4">
               {region.ingredientSummary}
             </p>
             <ul className="text-sm text-gray-700 font-light space-y-2 uppercase tracking-wide">
-              {/* Mapping through the dynamic ingredients array */}
               {region.ingredientsList.map((ingredient, index) => (
                 <li key={index}>• {ingredient}</li>
               ))}
@@ -195,7 +191,6 @@ export default function Region() {
             <h2 className="text-xl font-medium uppercase tracking-widest mb-4 group-hover:text-[var(--color-coral)] transition-colors duration-300">
               Migration Patterns
             </h2>
-            {/* Dynamic Migration Text */}
             <p className="text-gray-500 font-light leading-relaxed">
               {region.migration}
             </p>
@@ -206,7 +201,6 @@ export default function Region() {
             <h2 className="text-xl font-medium uppercase tracking-widest mb-4 group-hover:text-[var(--color-teal)] transition-colors duration-300">
               Dining Customs
             </h2>
-            {/* Dynamic Customs Text */}
             <p className="text-gray-500 font-light leading-relaxed">
               {region.customs}
             </p>
